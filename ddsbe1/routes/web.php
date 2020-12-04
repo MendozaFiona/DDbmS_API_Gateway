@@ -23,6 +23,7 @@ $router->get('/users/{id}', 'UserController@findUser'); // get user by id
 $router->put('/users/{id}', 'UserController@updateUser'); // update user record
 $router->delete('/users/{id}', 'UserController@delete'); // delete record
 
-//ROLES
-//$router->get('/roles','RoleController@getRole'); //get all roles
-//$router->get('/roles/{id}', 'RoleController@findRole'); // get role by id
+//JOBS routes
+$router->get('/usersjob', 'UserJobController@index');
+$router->get('/userjob/{id}', 'UserJobController@show'); // get user by id
+

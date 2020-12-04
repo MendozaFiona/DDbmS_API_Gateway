@@ -34,9 +34,20 @@ return [
     |
     */
 
-    'guards' => [
+    //OLD ONE!
+    /*'guards' => [
         'api' => ['driver' => 'passport'],
+    ],*/
+
+    //CHANGED!!!
+    'guards' => [
+        'api' => [
+            'driver' => 'passport',
+            //'provider' => 'users'
+        ],
     ],
+
+    //replace api to passport** vice versa
 
     /*
     |--------------------------------------------------------------------------
@@ -55,8 +66,17 @@ return [
     |
     */
 
-    'providers' => [
+    //OLD!!!
+    /*'providers' => [
         //
+    ],*/
+
+    //CHANGED!!
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class //state your user model
+        ]
     ],
 
     /*

@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Traits\ApiResponser;
 use App\Http\Controllers\Response;
-//use App\Models\Roles; -> USE WHEN NEEDED
+use App\Models\UserJob;
 
 Class UserController extends Controller {
     use ApiResponser;
@@ -25,13 +25,13 @@ Class UserController extends Controller {
         $rules = [
             'username' => 'required|max:50',
             'password' => 'required|max:50',
-            //'roleid' => 'required|numeric|min:1|not_in:0',
+            'jobid' => 'required|numeric|min:1|not_in:0',
         ];
 
         $this->validate($request, $rules);
 
-        //validate if there is role id
-        //$role = Roles::findOrFail($request->roleid);
+        //validate if jobid found in table tbluserjob
+        $userjob = UserJob::findOrFail($request->jobid);
         $user = User::create($request->all());
 
         return $this->createSuccess($user);
@@ -48,13 +48,13 @@ Class UserController extends Controller {
         $rules = [
             'username' => 'max:20',
             'password' => 'max:20',
-            //'roleid' => 'required|numeric|min:1|not_in:0',
+            'jobid' => 'required|numeric|min:1|not_in:0',
         ];
 
         $this->validate($request, $rules);
 
-        //validate if there is role id
-        //$role = Roles::findOrFail($request->roleid);
+        //validate jobid
+        $userjob = UserJob::findOrFail($request->jobid);
         $user = User::findOrFail($id);
 
         $user->fill($request->all());

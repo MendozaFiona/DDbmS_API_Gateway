@@ -25,7 +25,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     // table column
     protected $fillable = [
-        'username','password',
+        'username','password', 'jobid',
     ];
     
     protected $primaryKey = 'id';

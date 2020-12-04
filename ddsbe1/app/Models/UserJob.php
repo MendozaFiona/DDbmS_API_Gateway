@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+class UserJob extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable, HasFactory;
 
@@ -18,17 +18,20 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
+    /*
+    
+    protected $hidden = ['password'];*/
+
     public $timestamps = false;
-        
-    // table name
-    protected $table = 'users';
+
+    //table name
+    protected $table = 'tbluserjob';
+
+    protected $primaryKey = 'jobid';
 
     // table column
     protected $fillable = [
-        'username','password', 'jobid',
+        'jobid', 'jobname'
     ];
-    
-    protected $primaryKey = 'id';
-    protected $hidden = ['password'];
 
 }
