@@ -73,10 +73,10 @@ return [
 
     //CHANGED!!
     'providers' => [
-        'users' => [
+        /*'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class //state your user model
-        ]
+        ]*/
     ],
 
     /*

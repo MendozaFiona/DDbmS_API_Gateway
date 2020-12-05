@@ -29,6 +29,9 @@ $app->withEloquent();
 
 $app->configure('services');
 
+//ADDED!!!
+$app->configure('auth');
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -101,9 +104,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
 
 $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
-
-//ADDED!!!
-$app->configure('auth');
+$app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
